@@ -1,8 +1,6 @@
 let randInt = 0;
 let guess = 0 ;
 let guessNumTot = 0
-let playAgain = 0
-let yes = 0
 let guessNumLocal = 0
 let totGameNum = 0
 function Skibidi(){ 
@@ -12,10 +10,8 @@ function Skibidi(){
     guessNumTot = guessNumTot + 1
     guessNumLocal = guessNumLocal + 1
     totGameNum = totGameNum + 1
-    console.log(`Intial Guess ${guess}`)
-    console.log(`Answer${randInt}`)
     while(guess !== randInt){
-        if(guess>randInt){ 
+        if(guess>randInt &&  guess<=100){ 
          guess = prompt("Too High Guess Again")
             console.log(`Guess High ${guess}`)
         guessNumTot = guessNumTot + 1
@@ -23,12 +19,15 @@ function Skibidi(){
         console.log(`Guess Number Total ${guessNumTot}`);
 
         }
-        if(guess<randInt){
+        if(guess<randInt && guess >= 1){
          guess = prompt("Too Low Guess Again")
              console.log(`Guess low ${guess}`)
         guessNumTot = guessNumTot + 1
          guessNumLocal = guessNumLocal + 1
           console.log(`Guess Number local ${guessNumLocal}`);
+        }
+        if(guess<=1 || guess>=100){
+            guess = prompt("Not a valid guess, guess must be between 1 and 100")
         }
         else{ break}
        
@@ -39,8 +38,8 @@ function Skibidi(){
         console.log(`Guess Right ${guess}`)
         guessNumTot = guessNumTot + 1
         guessNumLocal = guessNumLocal + 1
-        console.log(`Guess Number local ${guessNumLocal}`);
-        console.log(`Guess Average${guessNumTot/totGameNum}`)
+        console.log(`Guesses this game ${guessNumLocal}`);
+        console.log(`Guess Average ${guessNumTot/totGameNum}`)
         playAgain = confirm("play again")
         if ( playAgain == true){
             Skibidi()
