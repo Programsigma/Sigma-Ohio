@@ -6,30 +6,36 @@ let totGameNum = 0
 function Skibidi(){ 
     guessNumLocal = 0
     randInt = Math.floor(Math.random()* 100);
-    guess = prompt("Guess a number between 1 and 100: ")
+    guess = +prompt("Guess a number between 1 and 100: ")
     guessNumTot = guessNumTot + 1
     guessNumLocal = guessNumLocal + 1
     totGameNum = totGameNum + 1
     while(guess !== randInt){
-        if(guess>randInt &&  guess<=100){ 
-         guess = prompt("Too High Guess Again")
+        
+         if(guess<=0 || guess>=101){
+            guess = +prompt("Not a valid guess, guess must be between 1 and 100")
+         }
+        else  if(guess>randInt &&  guess<=100){ 
+         guess = +prompt("Too High Guess Again")
             console.log(`Guess High ${guess}`)
         guessNumTot = guessNumTot + 1
         guessNumLocal = guessNumLocal + 1
-        console.log(`Guess Number Total ${guessNumTot}`);
-
+        
         }
-        if(guess<randInt && guess >= 1){
-         guess = prompt("Too Low Guess Again")
+        else if(guess<randInt && guess >= 1){
+         guess = +prompt("Too Low Guess Again")
              console.log(`Guess low ${guess}`)
         guessNumTot = guessNumTot + 1
          guessNumLocal = guessNumLocal + 1
           console.log(`Guess Number local ${guessNumLocal}`);
         }
-        if(guess<=1 || guess>=100){
-            guess = prompt("Not a valid guess, guess must be between 1 and 100")
+       else if (guess == false){
+            break
         }
-        else{ break}
+        else if (Number.isInteger(guess) == false ){ 
+            guess = +prompt("Not a valid input, try again")
+        }
+        
        
     }
  
