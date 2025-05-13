@@ -1,0 +1,54 @@
+let randInt = 0;
+let guess = 0 ;
+let guessNumTot = 0
+let playAgain = 0
+let yes = 0
+let guessNumLocal = 0
+let totGameNum = 0
+function Skibidi(){ 
+    guessNumLocal = 0
+    randInt = Math.floor(Math.random()* 100);
+    guess = prompt("Guess a number between 1 and 100: ")
+    guessNumTot = guessNumTot + 1
+    guessNumLocal = guessNumLocal + 1
+    totGameNum = totGameNum + 1
+    console.log(`Intial Guess ${guess}`)
+    console.log(`Answer${randInt}`)
+    while(guess !== randInt){
+        if(guess>randInt){ 
+         guess = prompt("Too High Guess Again")
+            console.log(`Guess High ${guess}`)
+        guessNumTot = guessNumTot + 1
+        guessNumLocal = guessNumLocal + 1
+        console.log(`Guess Number Total ${guessNumTot}`);
+
+        }
+        if(guess<randInt){
+         guess = prompt("Too Low Guess Again")
+             console.log(`Guess low ${guess}`)
+        guessNumTot = guessNumTot + 1
+         guessNumLocal = guessNumLocal + 1
+          console.log(`Guess Number local ${guessNumLocal}`);
+        }
+        else{ break}
+       
+    }
+ 
+    if(guess == randInt){
+        console.log("Hooray You Win")
+        console.log(`Guess Right ${guess}`)
+        guessNumTot = guessNumTot + 1
+        guessNumLocal = guessNumLocal + 1
+        console.log(`Guess Number local ${guessNumLocal}`);
+        console.log(`Guess Average${guessNumTot/totGameNum}`)
+        playAgain = confirm("play again")
+        if ( playAgain == true){
+            Skibidi()
+        } 
+        if( playAgain == false){
+            console.log ("Thanks for Playing!!")
+        }
+}
+}
+
+Skibidi()
