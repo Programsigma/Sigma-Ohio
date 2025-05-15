@@ -29,7 +29,7 @@ function Skibidi(){
          guessNumLocal = guessNumLocal + 1
           console.log(`Guess Number local ${guessNumLocal}`);
         }
-       else if (guess == false){
+       else if (guess == undefined){
             break
         }
         else if (Number.isInteger(guess) == false ){ 
