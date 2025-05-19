@@ -29,9 +29,6 @@ function Skibidi(){
          guessNumLocal = guessNumLocal + 1
           console.log(`Guess Number local ${guessNumLocal}`);
         }
-       else if (guess == undefined){
-            break
-        }
         else if (Number.isInteger(guess) == false ){ 
             guess = +prompt("Not a valid input, try again")
         }
@@ -46,7 +43,7 @@ function Skibidi(){
         guessNumLocal = guessNumLocal + 1
         console.log(`Guesses this game ${guessNumLocal}`);
         console.log(`Guess Average ${guessNumTot/totGameNum}`)
-        playAgain = confirm("play again")
+        playAgain = confirm(`Your score was ${guessNumLocal}, your guess average is ${guessNumTot/totGameNum}, this is round ${totGameNum}, play again?`)
         if ( playAgain == true){
             Skibidi()
         } 
